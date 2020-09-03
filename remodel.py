@@ -94,7 +94,7 @@ interaction_matrix = tf.constant(TFVAR_interaction_matrix, dtype=tf.float32)
 def get_pred_matrix(matrix1, matrix2, bias_vector1, bias_vector2):
     pred_matrix = tf.sigmoid(tf.matmul(matrix1, matrix2) + tf.transpose([bias_vector1]) + [bias_vector2])
     return pred_matrix
-def objective_function():
+def objective_functions():
     return tf.reduce_prod(tf.abs(interaction_matrix - tf.sigmoid(tf.matmul(user_embeddings_matrix, item_embeddings_matrix) + tf.transpose([user_bias_vector]) + [item_bias_vector])))
 
 optimizer = tf.keras.optimizers.Adagrad(learning_rate=0.5)

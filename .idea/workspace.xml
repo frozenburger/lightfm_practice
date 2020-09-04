@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8054d8ea-a908-48f5-910c-f0f0e4490edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movies.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ratings.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/remodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/genome-scores.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/genome-tags.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/links.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/tags.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_100k/fetch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/lightfm_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lightfm_practice.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lightFM.png" beforeDir="false" afterPath="$PROJECT_DIR$/lightFM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_lightfm.py" beforeDir="false" afterPath="$PROJECT_DIR$/tf_lightfm.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,27 +42,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jenov\Desktop\Projects\Pycharm Workspace\lightfm_practice" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jenov\Desktop\Projects\Pycharm Workspace\lightfm_practice\data_100k" />
+      <recent name="C:\Users\jenov\Desktop\Projects\Pycharm Workspace\lightfm_practice\data" />
       <recent name="C:\Users\s_jenova195\Desktop\Projects\Workspace_Pycharm\lightfm_practice\data" />
       <recent name="C:\Users\jenov\Desktop\Projects\Pycharm Workspace\lightfm_practice" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jenov\Desktop\Projects\Pycharm Workspace\lightfm_practice" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.remodel">
+  <component name="RunManager" selected="Python.tf_lightfm">
     <configuration name="practice" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lightfm_practice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,8 +95,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tf_lightfm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="lightfm_practice" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tf_lightfm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tf_lightfm" />
         <item itemvalue="Python.remodel" />
         <item itemvalue="Python.practice" />
       </list>
@@ -133,31 +147,36 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="274" key="FileChooserDialogImpl" timestamp="1598854304301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="278" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598854304301" />
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1598870891903">
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1599215655250">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598870891903" />
-    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1598870891903">
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599215655250" />
+    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1599215655249">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598870891903" />
-    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1598870891903">
+    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599215655249" />
+    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1599215655249">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598870891903" />
-    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1598870891903">
+    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599215655249" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1599215655250">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598870891903" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599215655250" />
     <state x="0" y="164" key="SettingsEditor" timestamp="1598855286355">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598855286355" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1599205935993">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599205935993" />
   </component>
 </project>

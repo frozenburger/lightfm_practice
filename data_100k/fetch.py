@@ -1,67 +1,59 @@
-# preprocessing
 import pandas as pd
 import numpy as np
-from lightfm.datasets.movielens import fetch_movielens
 
-def movielens(to_binary=False):
-    ratings_data = pd.read_csv('data_100k/u.data', sep='\t', header=None).drop(columns=3)
-    ratings_data = ratings_data.pivot(index=0, columns=1, values=2)
-    if to_binary==True:
-        ratings_data.values[ratings_data.values <= 3] = 0
-        ratings_data.values[4 <= ratings_data.values] = 1
-    ratings_data = ratings_data.fillna(-1)
-    interaction_matrix = ratings_data.to_numpy()
+def movielens():
+    train = pd.read_csv('data_100k/u1.base', sep='\t', header=None).drop(columns=3)
+    test = pd.read_csv('data_100k/u1.test', sep='\t', header=None).drop(columns=3)
+    train_keys = train.pivot(index=0, columns=1, values=2).keys()
+    test_keys = test.pivot(index=0, columns=1, values=2).keys()
+    test_index = test.pivot(index=0, columns=1, values=2).index
 
-    user_data = pd.read_csv('data_100k/u.user', header=None)
-    job_list = pd.read_csv('data_100k/u.occupation', header=None)
-    array = []
-    for iteration in range(len(user_data)):
-        current_user_job = user_data.iloc[iteration].values.item().split('|')[3]
-        embedding = list(map(lambda x: 1 if x == current_user_job else 0, job_list[0]))
-        array.append(embedding)
-    user_feat_indicators = np.array(array)
+    train_added_keys = []
+    test_added_keys = []
+    test_added_index = []
+    for i in np.arange(1682) + 1:
+        if i not in train_keys:
+            train.loc[len(train)] = [1, i, -1]
+            train_added_keys.append(i)
+        if i not in test_keys:
+            test.loc[len(test)] = [1, i, -1]
+            test_added_keys.append(i)
+    for i in np.arange(943) + 1:
+        if i not in test_index:
+            test.loc[len(test)] = [i, 1, -1]
+            test_added_index.append(i)
 
-    movies_data = pd.read_csv('data_100k/u.item', sep='|', encoding='latin-1', header=None)
-    genre_df = pd.read_csv('data_100k/u.genre', header=None)[0]
-    genre_list = list(map(lambda x: x.split('|')[1], genre_df.to_list()))
-    array = []
-    for iteration in range(len(movies_data)):
-        current_movie_genres = movies_data.loc[iteration][5:].to_list()
-        array.append(current_movie_genres)
-    item_feat_indicators = np.array(array)
+    train = train.pivot(index=0, columns=1, values=2)
+    test = test.pivot(index=0, columns=1, values=2)
 
-    movies_dict = movies_data[1].to_dict()
-
-    return interaction_matrix, user_feat_indicators, item_feat_indicators, movies_dict
-
-def movielens_split():
-    data = fetch_movielens()
-    ratings_data = data['train'].toarray()
-    ratings_data[ratings_data==0] = -1
-    ratings_data[(0 <= ratings_data) & (ratings_data <= 3)] = 0
-    ratings_data[(4 <= ratings_data) & (ratings_data <= 5)] = 1
-    interaction_matrix = ratings_data
+    train.values[(0 <= train.values) & (train.values <= 3)] = 0
+    train.values[(4 <= train.values) & (train.values <= 5)] = 1
+    test.values[(0 <= test.values) & (test.values <= 3)] = 0
+    test.values[(4 <= test.values) & (test.values <= 5)] = 1
+    train = train.fillna(-1).to_numpy()
+    test = test.fillna(-1).to_numpy()
+    # train : (0 * 35860) + (1 * 44140)
+    # test : (0 * 8765) + (1 * 11235)
 
     user_data = pd.read_csv('data_100k/u.user', header=None)
     job_list = pd.read_csv('data_100k/u.occupation', header=None)
     array = []
     for iteration in range(len(user_data)):
         current_user_job = user_data.iloc[iteration].values.item().split('|')[3]
-        embedding = list(map(lambda x: 1 if x == current_user_job else 0, job_list[0]))
-        array.append(embedding)
+        job_index = list(map(lambda x: 1 if x == current_user_job else 0, job_list[0]))
+        sex_index = [1, 0] if user_data.iloc[iteration].values.item().split('|')[2] == 'M' else [0, 1]
+        array.append(job_index + sex_index)
     user_feat_indicators = np.array(array)
 
     movies_data = pd.read_csv('data_100k/u.item', sep='|', encoding='latin-1', header=None)
     genre_df = pd.read_csv('data_100k/u.genre', header=None)[0]
-    genre_list = list(map(lambda x: x.split('|')[1], genre_df.to_list()))
     array = []
     for iteration in range(len(movies_data)):
+        # genre index list (0s and 1s) * 19
         current_movie_genres = movies_data.loc[iteration][5:].to_list()
         array.append(current_movie_genres)
     item_feat_indicators = np.array(array)
 
     movies_dict = movies_data[1].to_dict()
 
-    test_data = data['test'].toarray()
-
-    return interaction_matrix, user_feat_indicators, item_feat_indicators, movies_dict, test_data
+    return train, test, user_feat_indicators, item_feat_indicators, movies_dict

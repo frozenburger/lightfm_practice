@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8054d8ea-a908-48f5-910c-f0f0e4490edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tf1_lightfm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_100k/fetch_legacy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lightfm_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lightfm_practice.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_lightfm.py" beforeDir="false" afterPath="$PROJECT_DIR$/tf2_lightfm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_100k/fetch.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_100k/fetch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf2_lightfm.py" beforeDir="false" afterPath="$PROJECT_DIR$/tf2_lightfm.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +35,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../welt_processing" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -45,18 +47,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jenov\Desktop\Projects\Pycharm Workspace\lightfm_practice" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.tf2_lightfm (1)">
     <configuration name="practice" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -192,13 +182,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="274" key="FileChooserDialogImpl" timestamp="1598854304301">
@@ -221,13 +210,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599215655250" />
-    <state x="0" y="164" key="SettingsEditor" timestamp="1598855286355">
+    <state x="0" y="164" key="SettingsEditor" timestamp="1599807653049">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598855286355" />
+    <state x="0" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599807653049" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1599205935993">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599205935993" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599807254436">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599807254436" />
   </component>
 </project>

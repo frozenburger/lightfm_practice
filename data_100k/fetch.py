@@ -57,3 +57,19 @@ def movielens():
     movies_dict = movies_data[1].to_dict()
 
     return train, test, user_feat_indicators, item_feat_indicators, movies_dict
+
+
+def array_to_pairs(arr):
+    positives = {}
+    negatives = {}
+    for i in range(arr.shape[0]):
+        pos_temp = []
+        neg_temp = []
+        for j in range(arr.shape[1]):
+            if arr[i][j] == 1:
+                pos_temp.append(j)
+            elif arr[i][j] == 0:
+                neg_temp.append(j)
+        positives[i] = pos_temp
+        negatives[i] = neg_temp
+    return positives, negatives

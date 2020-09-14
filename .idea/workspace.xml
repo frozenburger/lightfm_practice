@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8054d8ea-a908-48f5-910c-f0f0e4490edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data_100k/fetch_legacy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/lightfm_practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lightfm_practice.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_100k/fetch.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_100k/fetch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf1_lightfm.py" beforeDir="false" afterPath="$PROJECT_DIR$/warp_lightfm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tf2_lightfm.py" beforeDir="false" afterPath="$PROJECT_DIR$/tf2_lightfm.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +101,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tf1_lightfm.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\jenov\Desktop\Projects\Pycharm Workspace\lightfm_practice\warp_lightfm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />

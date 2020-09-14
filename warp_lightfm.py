@@ -4,6 +4,21 @@ import numpy as np
 class model():
     def __init__(self, interactions, test_data, user_feat_indicators, item_feat_indicators, labels, k_embeddings=10):
 
+        def array_to_pairs(arr):
+            positives = {}
+            negatives = {}
+            for i in range(arr.shape[0]):
+                pos_temp = []
+                neg_temp = []
+                for j in range(arr.shape[1]):
+                    if arr[i][j] == 1:
+                        pos_temp.append(j)
+                    elif arr[i][j] == 0:
+                        neg_temp.append(j)
+                positives[i] = pos_temp
+                negatives[i] = neg_temp
+            return positives, negatives
+
         init_xav = tf.initializers.GlorotUniform()
         self.labels = labels
         self.test_data = test_data
@@ -13,9 +28,7 @@ class model():
         self.k_embeddings = k_embeddings
 
         self.interactions = tf.constant(interactions, dtype=tf.float32) #유저x상품 상호작용이 positive 시 0, negative 시 1
-        self.positives = tf.constant((interactions == 1).astype(float), dtype=tf.float32)
-        self.negatives = tf.constant((interactions == 0).astype(float), dtype=tf.float32)
-        self.true_matrix = self.positives + self.negatives
+        self.positive_pairs, self.negative_pairs = array_to_pairs(interactions)
 
         self.user_feat_indicators = tf.constant(user_feat_indicators, dtype=tf.float32) #유저피쳐 해당시 1, 아닐시 0 ??
         self.item_feat_indicators = tf.constant(item_feat_indicators, dtype=tf.float32) #상품피쳐 해당시 1, 아닐시 0
@@ -36,11 +49,7 @@ class model():
             + tf.linalg.matvec(self.item_feat_indicators, self.item_feat_bias_vector)
         )
 
-    def linear_loss(self):
-        positive_scores = tf.multiply(self.get_prediction_matrix(), self.positives)
-        negative_scores = self.negatives - tf.multiply(self.get_prediction_matrix(), self.negatives)
-        squared_diff = tf.math.squared_difference(self.true_matrix, positive_scores+negative_scores)
-        return tf.sqrt(tf.reduce_sum(squared_diff) / tf.reduce_sum(self.positives + self.negatives))
+
     '''
     무작위 유저 선택
     그 유저의 positive interaction 1개 무작위 선택
@@ -49,8 +58,19 @@ class model():
     두 score를 비교 후 옳게 되어 있으면 패스, 틀렸을 경우 두 score의 차이를 loss로 반환
     '''
     def warp_loss(self):
-        self.positives
-        self.negatives
+        random_user_index = np.random.randint(0, self.size_u)
+        random_pos_item_index = np.random.randint(0, len(self.positive_pairs[random_user_index]))
+        random_neg_item_index = np.random.randint(0, len(self.negative_pairs[random_user_index]))
+
+        scores = self.get_prediction_matrix()
+        pos_score = scores[random_user_index][random_pos_item_index]
+        neg_score = scores[random_user_index][random_neg_item_index]
+        if pos_score > neg_score :
+            pass
+        elif pos_score <= neg_score :
+            return neg_score - pos_score
+
+
 
     def train(self, epoch=30):
         for i in range(epoch):
@@ -118,6 +138,12 @@ class model():
         squared_diff = tf.math.squared_difference(self.interactions, self.get_prediction_matrix())
         squared_diff_relevant = tf.where(mask, tf.zeros_like(squared_diff), squared_diff)
         return tf.sqrt(tf.reduce_mean(squared_diff_relevant))
+        
+    def linear_loss(self):
+        positive_scores = tf.multiply(self.get_prediction_matrix(), self.positives)
+        negative_scores = self.negatives - tf.multiply(self.get_prediction_matrix(), self.negatives)
+        squared_diff = tf.math.squared_difference(self.true_matrix, positive_scores+negative_scores)
+        return tf.sqrt(tf.reduce_sum(squared_diff) / tf.reduce_sum(self.positives + self.negatives))
     '''
 
 

@@ -114,7 +114,7 @@ class model():
 
 '''
 # EXECUTION SHORTCUT
-from data_100k.fetch import movielens_split
+from data_100k.fetch import movielens
 from tf2_lightfm import model
 d1, d2, d3, d4, d5 = movielens()
 cls = model(d1, d2, d3, d4, d5)
